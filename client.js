@@ -4,6 +4,6 @@ import ReactDOM from 'react-dom';
 
 ReactDOM.render((
     <div>
-        FF
+        FF1
     </div>
 ), document.getElementById('app'));
