@@ -1,0 +1,21 @@
+{
+  "name": "ia-web",
+  "version": "1.0.0",
+  "description": "FF Internal Applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.ff.com:7999/ia/ia-web.git"
+  },
+  "author": "FF Web Team",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.7.6",
+    "nodemon": "^1.11.0"
+  }
+}
