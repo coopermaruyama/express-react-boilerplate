@@ -24,4 +24,4 @@ app.get('*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 /**
  * Run the server
  */
-app.listen(3000, () => console.log('App listening on port 30s00!'));
+app.listen(3000, () => console.log('App listening on port 3000!'));
