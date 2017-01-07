@@ -46,23 +46,30 @@
 
 	/* WEBPACK VAR INJECTION */(function(__dirname) {'use strict';
 
-	var express = __webpack_require__(1);
-	var mongoose = __webpack_require__(2);
+	var _express = __webpack_require__(1);
+
+	var _express2 = _interopRequireDefault(_express);
+
+	var _mongoose = __webpack_require__(2);
+
+	var _mongoose2 = _interopRequireDefault(_mongoose);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
 	 * Initialize the database.
 	 */
-	mongoose.connect('mongodb://mongo:27017');
+	_mongoose2.default.connect('mongodb://mongo:27017');
 
 	/**
 	 * Initialize the application.
 	 */
-	var app = express();
+	var app = (0, _express2.default)();
 
 	/**
 	 * Serve files in the /public directory as static files.
 	 */
-	app.use(express.static('public'));
+	app.use(_express2.default.static('public'));
 
 	/**
 	 * SPA
