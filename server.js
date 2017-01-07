@@ -82,7 +82,7 @@
 	 * Run the server
 	 */
 	app.listen(3000, function () {
-	  return console.log('App listening on port 3000!');
+	  return console.log('App listening on port 30s00!');
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
