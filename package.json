@@ -4,8 +4,7 @@
   "description": "FF Internal Applications",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "nodemon --inspect=9227 --watch server.js server.js",
     "dev": "webpack --config webpack.config.dev.js --watch",
     "build": "webpack --config webpack.config.dev.js"
   },
@@ -16,20 +15,31 @@
   "author": "FF Web Team",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.22.0",
+    "body-parser": "^1.16.0",
+    "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "mongoose": "^4.7.6",
     "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "webpack-node-externals": "^1.5.4",
     "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "eslint": "^3.13.0",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
     "json-loader": "^0.5.4",
-    "webpack": "^1.14.0",
+    "webpack": "^2.2.0-rc.3",
     "webpack-node-externals": "^1.5.4"
   }
 }
