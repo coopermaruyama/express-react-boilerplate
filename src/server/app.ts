@@ -1,9 +1,9 @@
 /* eslint-disable no-console, newline-after-var */
 import 'babel-polyfill';
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import settings from 'settings';
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
+import * as mongoose from 'mongoose';
+import * as settings from 'settings';
 
 /**
  * Initialize the database.
@@ -13,7 +13,9 @@ mongoose.connect(settings.MONGO_URI);
 /**
  * Initialize the application.
  */
-const app = module.exports = express();
+const app: express.Express = express();
+
+export default app;
 
 /**
  * Support json & urlencoded requests.

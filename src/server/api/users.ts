@@ -5,7 +5,7 @@ import User from 'models/user';
 /**
 * Return a single user.
 */
-app.get('/api/users/:userId', async function (req, res) {
+app.get('/api/users/:userId', async function (req, res): Promise<void> {
   const { userId } = req.params;
 
   try {
@@ -20,7 +20,7 @@ app.get('/api/users/:userId', async function (req, res) {
 /**
 * Return a list of users.
 */
-app.get('/api/users', async function (req, res) {
+app.get('/api/users', async function (req, res): Promise<void> {
   try {
     const users = await User.find();
 
@@ -33,7 +33,7 @@ app.get('/api/users', async function (req, res) {
 /**
  * Add a user
  */
-app.post('/api/users', async function (req, res) {
+app.post('/api/users', async function (req, res): Promise<void> {
   const { username } = req.body;
 
   try {

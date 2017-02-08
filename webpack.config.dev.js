@@ -21,7 +21,7 @@ module.exports = [
       /**
       * Overriding the default to allow jsx to be resolved automatically.
       */
-      extensions: ['.js', '.json', '.jsx'],
+      extensions: ['.ts', '.tsx', '.js', '.json', '.jsx'],
       /**
       * Access config from anywhere via `import settings from 'settings'``
       */
@@ -38,6 +38,10 @@ module.exports = [
           query: {
             presets: ['es2015', 'react', 'stage-2']
           }
+        },
+        {
+          test: /\.tsx?$/,
+          loader: 'awesome-typescript-loader'
         }
       ]
     }
@@ -75,7 +79,15 @@ module.exports = [
       filename: './server.js'
     },
     resolve: {
+      /**
+       * Allows absolute imports e.g. `import module from 'app/module'`
+       * @type {Array}
+       */
       modules: ['./src/server'],
+      /**
+      * Overriding the default to allow jsx to be resolved automatically.
+      */
+      extensions: ['.ts', '.tsx', '.js', '.json', '.jsx'],
       /**
       * Access config from anywhere via `import settings from 'settings'``
       */
@@ -91,6 +103,10 @@ module.exports = [
           query: {
             presets: ['es2015', 'stage-2']
           }
+        },
+        {
+          test: /\.ts$/,
+          loader: 'awesome-typescript-loader'
         }
       ]
     }

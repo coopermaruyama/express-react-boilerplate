@@ -1,6 +1,6 @@
-import mongoose, { Schema } from 'mongoose';
+import * as mongoose from 'mongoose';
 
-const UserSchema = new Schema({
+const UserSchema = new mongoose.Schema({
 
   /**
   * username.

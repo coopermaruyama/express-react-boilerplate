@@ -1,11 +1,20 @@
 /* eslint-disable no-console, react/prop-types */
-/**
+/*
 * Below code is just for example. Don't actually write code like this, use something like redux or
 * mobx for managing state and API concerns.
 */
-import React from 'react';
+import * as React from 'react';
 
-class Home extends React.Component {
+export interface HomeProps {
+  title: string;
+}
+
+export interface HomeState {
+  isFetching: boolean;
+  users: Array<Object>
+}
+
+class Home extends React.Component<HomeProps, HomeState> {
 
   state = {
     isFetching: false,
@@ -29,18 +38,22 @@ class Home extends React.Component {
   }
 
   addUser = async function () {
+    const opts = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: `User${Date.now()}`
+      })
+    };
+
+    if (window.DEBUG) {
+      console.log('Added user.');
+    }
+
     try {
-
-      await fetch('/api/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username: `User${Date.now()}`
-        })
-      });
-
+      await fetch('/api/users', opts);
       this.fetchUsers();
     } catch (err) {
       console.log(err.message);
@@ -49,9 +62,10 @@ class Home extends React.Component {
 
 
   render() {
+    const a = 1;
     return (
       <div>
-        <h3>Homepage</h3>
+        <h3>{this.props.title}</h3>
         <button onClick={() => !this.state.isFetching && this.addUser()}>Add a user</button>
         <h5>Users</h5>
         <ul>
