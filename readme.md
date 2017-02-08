@@ -18,6 +18,12 @@ npm run dev
 docker-compose up
 ```
 
+### Customize
+
+This repo contains forks which you can merge or check out to add to your boilerplate:
+
+* [with-flow](https://github.com/coopermaruyama/express-react-boilerplate/tree/with-flow): Adds flow type-checker.
+
 
 ## Features
 
