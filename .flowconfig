@@ -1,0 +1,27 @@
+[ignore]
+
+<PROJECT_ROOT>/public/.*
+<PROJECT_ROOT>/src/server/.*
+.*/node_modules/json/test/.*
+<PROJECT_ROOT>/.*/node_modules/bcryptjs/src/bower.json
+
+[include]
+<PROJECT_ROOT>/src/client/.*
+
+[libs]
+./node_modules/fbjs/flow/lib/dev.js
+
+[options]
+module.system.node.resolve_dirname=node_modules
+
+module.name_mapper='^app/\(.*\)' -> '<PROJECT_ROOT>/src/client/app/\1'
+module.name_mapper='^settings$' -> '<PROJECT_ROOT>/settings.js'
+
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+
+munge_underscores=false
+
+
+[version]
+^0.38.0

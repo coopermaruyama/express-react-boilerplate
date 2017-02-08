@@ -2,10 +2,16 @@
 /**
 * Below code is just for example. Don't actually write code like this, use something like redux or
 * mobx for managing state and API concerns.
+* @flow
 */
 import React from 'react';
 
 class Home extends React.Component {
+
+  state: {
+    isFetching: ?boolean,
+    users: Object[]
+  }
 
   state = {
     isFetching: false,
