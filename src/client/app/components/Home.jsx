@@ -1,67 +1,70 @@
-/* eslint-disable no-console, react/prop-types */
+import React, { PropTypes } from 'react';
+import { graphql, compose } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const propTypes = {
+  isFetching: PropTypes.bool,
+  addUser: PropTypes.func.isRequired,
+  users: PropTypes.array
+};
+
+const Home = ({ isFetching, addUser, users = []}) => (
+  <div>
+    <h3>Homepage</h3>
+    <button
+      onClick={() => !isFetching && addUser(`User${Date.now()}`)}
+    >
+      Add a user
+    </button>
+    <h5>Users</h5>
+    <ul>
+      {users.map(user =>
+        <li key={user.username}>{user.username}</li>
+      )}
+    </ul>
+  </div>
+);
+
+Home.propTypes = propTypes;
+
 /**
-* Below code is just for example. Don't actually write code like this, use something like redux or
-* mobx for managing state and API concerns.
-*/
-import React from 'react';
-
-class Home extends React.Component {
-
-  state = {
-    isFetching: false,
-    users: []
-  }
-
-  componentDidMount() {
-    this.fetchUsers();
-  }
-
-  fetchUsers = async function () {
-    this.setState({ isFetching: true });
-    try {
-      const res = await fetch('/api/users');
-      const users = await res.json();
-
-      this.setState({ users, isFetching: false });
-    } catch (err) {
-      console.log(err.message);
+ * Query Data
+ */
+const QUERY = gql`
+  query getUsers {
+    users {
+      _id,
+      username
     }
   }
+`;
+const mapDataToProps = result => ({
+  users: result.data.users,
+  isFetching: result.data.loading
+});
+const withData = graphql(QUERY, {
+  props: mapDataToProps
+});
 
-  addUser = async function () {
-    try {
-
-      await fetch('/api/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username: `User${Date.now()}`
-        })
-      });
-
-      this.fetchUsers();
-    } catch (err) {
-      console.log(err.message);
+/**
+ * Query Actions
+ */
+const ACTIONS = gql`
+  mutation addUser($username: String!) {
+    addUser(username: $username) {
+      _id,
+      username
     }
   }
+`;
+const mapActionsToProps = ({ mutate }) => ({
+  addUser: username => mutate({
+    variables: { username },
+    refetchQueries: ['getUsers']
+  })
+});
+const withActions = graphql(ACTIONS, {
+  props: mapActionsToProps
+});
 
-
-  render() {
-    return (
-      <div>
-        <h3>Homepage</h3>
-        <button onClick={() => !this.state.isFetching && this.addUser()}>Add a user</button>
-        <h5>Users</h5>
-        <ul>
-          {this.state.users.map(user =>
-            <li key={user.username}>{user.username}</li>
-          )}
-        </ul>
-      </div>
-    );
-  }
-}
-
-export default Home;
+export default compose(withData, withActions)(Home);

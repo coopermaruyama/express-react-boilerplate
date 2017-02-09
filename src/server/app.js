@@ -3,7 +3,9 @@ import 'babel-polyfill';
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
 import settings from 'settings';
+import schema from 'schema';
 
 /**
  * Initialize the database.
@@ -22,11 +24,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 /**
+ * GraphQL
+ */
+app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+
+if (process.env.NODE_ENV !== 'production') {
+  app.use('/graphiql', graphiqlExpress({
+    endpointURL: '/graphql'
+  }));
+}
+
+/**
  * Serve files in the /public directory as static files.
  */
 app.use(express.static('public'));
-
-require('api/users');
 
 /**
  * Byh default, serve our index.html file

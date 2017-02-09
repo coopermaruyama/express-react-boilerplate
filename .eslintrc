@@ -129,7 +129,7 @@
     }],
     "no-mixed-operators": 0,
     "import/no-unresolved": [2, {
-      "ignore": ['^(app|settings|models|api|lib)']
+      "ignore": ['^(app|settings|models|api|lib|schema)']
     }],
     "import/no-extraneous-dependencies": [0],
     "import/extensions": [0],
