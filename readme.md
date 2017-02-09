@@ -18,12 +18,13 @@ npm run dev
 docker-compose up
 ```
 
-### Customize
+### Flavors
 
-This repo contains forks which you can merge or check out to add to your boilerplate:
+Choose a flavor: These branches include extra features which you can merge together.
 
 * [with-flow](https://github.com/coopermaruyama/express-react-boilerplate/tree/with-flow): With flow type-checker.
 * [with-typescript](https://github.com/coopermaruyama/express-react-boilerplate/tree/with-typescript): With Typescript
+* [with-graphql](https://github.com/coopermaruyama/express-react-boilerplate/tree/with-graphql): With GraphQL
 
 
 ## Features
