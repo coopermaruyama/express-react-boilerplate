@@ -4,17 +4,17 @@
   "description": "NodeJS App",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --inspect=9227 --watch server.js server.js",
+    "start": "nodemon --inspect --watch server.js server.js",
     "dev": "webpack --config webpack.config.dev.js --watch",
     "build": "webpack --config webpack.config.dev.js",
     "flow": "flow"
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@git.ff.com:7999/ia/ia-web.git"
+    "url": "https://github.com/coopermaruyama/express-react-boilerplate.git"
   },
-  "author": "FF Web Team",
-  "license": "ISC",
+  "author": "Cooper Maruyama",
+  "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.22.0",
     "body-parser": "^1.16.0",
