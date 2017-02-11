@@ -8,6 +8,8 @@ services:
             - "3000:3000"
         links:
             - mongo
+        environment:
+            - MONGO_URI=mongodb://mongo:27017/app
     mongo:
         image: mongo
         ports:
