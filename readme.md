@@ -25,6 +25,7 @@ Choose a flavor: These branches include extra features which you can merge toget
 * [with-flow](https://github.com/coopermaruyama/express-react-boilerplate/tree/with-flow): With flow type-checker.
 * [with-typescript](https://github.com/coopermaruyama/express-react-boilerplate/tree/with-typescript): With Typescript
 * [with-graphql](https://github.com/coopermaruyama/express-react-boilerplate/tree/with-graphql): With GraphQL
+* [with-mobx](https://github.com/coopermaruyama/express-react-boilerplate/tree/with-mobx): With MobX
 
 
 ## Features
