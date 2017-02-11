@@ -36,6 +36,7 @@ module.exports = [
           exclude: /(node_modules|bower_components)/,
           loader: 'babel-loader',
           query: {
+            plugins: ['babel-plugin-transform-decorators-legacy'],
             presets: ['es2015', 'react', 'stage-2']
           }
         }
@@ -89,6 +90,7 @@ module.exports = [
           test: /\.js$/,
           loader: 'babel-loader',
           query: {
+            plugins: ['babel-plugin-transform-decorators-legacy'],
             presets: ['es2015', 'stage-2']
           }
         }
