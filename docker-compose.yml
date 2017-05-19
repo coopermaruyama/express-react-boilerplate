@@ -6,10 +6,11 @@ services:
             - ./:/app
         ports:
             - "3000:3000"
+            - "9229:9229"
         links:
             - mongo
         environment:
-            - MONGO_URI=mongodb://mongo:27017/app
+            - MY_ENV_VAR="some value"
     mongo:
         image: mongo
         ports:

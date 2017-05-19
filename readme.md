@@ -48,7 +48,7 @@ $ make test
 
 ## Features
 
-* Mongo linked in docker container
+* Mongo linked via docker. Won't collide with your local running mongo.
 * Webpack on both client and server side, so you can run stuff like async/await on both.
 * Native Node inspector (this is why you need node 7 or later).
 * Absolute imports for `client` and `server` directories, so you can do `import thing from 'app/module/thing'`.
