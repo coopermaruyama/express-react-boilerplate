@@ -41,6 +41,11 @@ Log into container shell
 $ make shell
 ```
 
+Run tests
+```
+$ make test
+```
+
 ## Features
 
 * Mongo linked in docker container

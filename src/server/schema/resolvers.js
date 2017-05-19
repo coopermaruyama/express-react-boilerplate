@@ -1,4 +1,5 @@
-import { User, Todo } from './models';
+import User from 'models/user';
+import Todo from 'models/todo';
 
 export default {
   Query: {
