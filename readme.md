@@ -27,6 +27,19 @@ Choose a flavor: These branches include extra features which you can merge toget
 * [with-graphql](https://github.com/coopermaruyama/express-react-boilerplate/tree/with-graphql): With GraphQL
 * [with-mobx](https://github.com/coopermaruyama/express-react-boilerplate/tree/with-mobx): With MobX
 
+## Helpers
+
+### npm
+```
+npm run build   # Create production build
+```
+
+### Makefile
+
+Log into container shell
+```
+$ make shell
+```
 
 ## Features
 
